@@ -8,6 +8,9 @@ fi
 QUAY=$(pwd)
 CONTAINER_TOOL=docker
 
+setfacl -m u:26:-wx $QUAY/postgres
+setfacl -m u:1001:-wx $QUAY/storage
+
 $CONTAINER_TOOL run -d --rm --name quaydb -e POSTGRES_USER=quay -e POSTGRES_PASSWORD=quay -e POSTGRES_DB=quay -p 5432:5432 -v $QUAY/postgres:/var/lib/postgresql/data:Z postgres:10.12
 sleep 15
 $CONTAINER_TOOL exec -it quaydb /bin/bash -c 'echo "CREATE EXTENSION IF NOT EXISTS pg_trgm" | psql -d quay -U quay'

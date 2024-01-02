@@ -8,6 +8,10 @@ fi
 QUAY=$(pwd)
 CONTAINER_TOOL=docker
 
+if [ ! -d "$QUAY/postgres" ]; then
+  mkdir postgres
+fi
+
 setfacl -m u:26:-wx $QUAY/postgres
 setfacl -m u:1001:-wx $QUAY/storage
 

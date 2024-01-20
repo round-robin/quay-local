@@ -6,7 +6,7 @@ ALLOWED_OCI_ARTIFACT_TYPES:
 AUTHENTICATION_TYPE: Database
 AVATAR_KIND: local
 BUILDLOGS_REDIS:
-    host: 172.17.0.3
+    host: QUAY_REDIS_IP
     password: strongpassword
     port: 6379
 DATABASE_SECRET_KEY: 6b8ffb7b-e62e-4b1c-9ebc-25c104667f69
@@ -17,7 +17,7 @@ DB_CONNECTION_ARGS: {}
 #    keepalivesinterval: 0
 #    sslcompression: 0
 #    tcpusertimeout: 0
-DB_URI: postgresql://quay:quay@172.17.0.2/quay
+DB_URI: postgresql://quay:quay@QUAY_DB_IP/quay
 DEFAULT_TAG_EXPIRATION: 2w
 DISTRIBUTED_STORAGE_CONFIG:
     default:
@@ -98,7 +98,7 @@ TEAM_RESYNC_STALE_TIME: 30m
 TESTING: false
 USE_CDN: false
 USER_EVENTS_REDIS:
-    host: 172.17.0.3
+    host: QUAY_REDIS_IP
     password: strongpassword
     port: 6379
 USER_RECOVERY_TOKEN_LIFETIME: 30m
